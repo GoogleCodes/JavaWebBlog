@@ -24,7 +24,7 @@ public class StudentBusiness {
 	public static List<Students> getAllStudents() {
 		//	list对象
 		List<Students> list = new ArrayList<Students>();
-		String sql = "select * from tb_users";
+		String sql = "select * from tb_nav";
 		DBClass db = new DBClass();
 		Connection conn = db.getConnection();
 		Students student = new Students();
@@ -36,9 +36,10 @@ public class StudentBusiness {
 				//	获取数据
 				int id = READ.getInt(1);
 				String name = READ.getString(2);
-				System.out.println(id +"  "+ name);
+				String url = READ.getString(6);
 				student.setId(id);
 				student.setName(name);
+				student.setUrl(url);
 				//	把数据加载到集合中
 				list.add(student);
 			}
