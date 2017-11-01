@@ -37,11 +37,12 @@ public class MyServlet extends HttpServlet {
 			throws ServletException, IOException {
 		
 		List<Students> list = new StudentServiceImpl().getAllStudents();
-		ListObject listObject = new ListObject();
-		listObject.setItems(list);
-		listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);
-	    String responseText = JackJsonUtils.toJson(listObject);
-	    ResponseUtils.renderJson(response, responseText);
+		System.out.println(list);
+//		ListObject listObject = new ListObject();
+//		listObject.setItems(list);
+//		listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);
+//	    String responseText = JackJsonUtils.toJson(listObject);
+//	    ResponseUtils.renderJson(response, responseText);
 	}
 
 	

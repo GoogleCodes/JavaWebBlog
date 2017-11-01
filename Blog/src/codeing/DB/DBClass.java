@@ -33,7 +33,7 @@ public class DBClass {
 	 * 
 	 * (打开数据库)
 	 * 方法名：getConnection
-	 * 创建人：xuchengfei 
+	 * 创建人：cainiao
 	 * 时间：2017年10月31日-下午10:07:57 
 	 * 手机:1564545646464 void
 	 * @return 
@@ -55,7 +55,7 @@ public class DBClass {
 	 * 
 	 * (关闭数据)
 	 * 方法名：getClose
-	 * 创建人：xuchengfei 
+	 * 创建人：cainiao
 	 * 时间：2017年10月31日-下午10:06:48 
 	 * 手机:1564545646464 void
 	 * @exception 
