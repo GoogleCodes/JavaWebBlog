@@ -24,13 +24,12 @@ public class StudentBusiness {
 	public static List<Students> getAllStudents() {
 		//	list对象
 		List<Students> list = new ArrayList<Students>();
-		Students student = new Students();
 		String sql = "select * from tb_users";
 		DBClass db = new DBClass();
-		
-//		Connection conn = db.getConnection();
+		Connection conn = db.getConnection();
+		Students student = new Students();
 		//	执行sql语句
-		/*try {
+		try {
 			PRER = conn.prepareStatement(sql);
 			READ = PRER.executeQuery();
 			while (READ.next()) {
@@ -47,12 +46,7 @@ public class StudentBusiness {
 			db.getCloseDB();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}*/
-		
-		student.setId(1);
-		student.setName("name");
-		//	把数据加载到集合中
-		list.add(student);
+		}
 		return list;
 	}
 

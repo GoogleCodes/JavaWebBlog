@@ -43,6 +43,7 @@ public class MyServlet extends HttpServlet {
 	    String responseText = JackJsonUtils.toJson(listObject);
 	    ResponseUtils.renderJson(response, responseText);
 	}
+
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

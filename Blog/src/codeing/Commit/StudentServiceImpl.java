@@ -17,7 +17,7 @@ import codeing.User.*;
  *
  */
 public class StudentServiceImpl implements MyInterface {
-	
+
 	public List<Students> getAllStudents() {
         return StudentBusiness.getAllStudents();
     }
