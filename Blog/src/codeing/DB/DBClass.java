@@ -14,10 +14,10 @@ import java.sql.*;
  */
 public class DBClass {
 	
-	//	桥接
+	//	驱动字符串
 	private static String DRIVER = "com.mysql.jdbc.Driver";
 	//	数据库地址
-	private static String DBService = "qdm236565334.my3w.com";
+	private static String DBService = "qdm236565334.my3w.com:3306";
 	//	数据库名称
 	private static String DBNAME = "qdm236565334_db";
 	//	请求地址
@@ -25,9 +25,8 @@ public class DBClass {
 	//	数据库帐号和密码
 	private static String USERNAME = "qdm236565334";
 	private static String PASSWORD = "xiuxian123";
-	
+	//	创建连接
 	private static Connection CONN = null;
-	private static PreparedStatement PREPARED = null;
 	
 	/**
 	 * 
