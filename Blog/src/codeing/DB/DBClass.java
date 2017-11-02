@@ -42,14 +42,18 @@ public class DBClass {
 	 */
 	public Connection getConnection() {
 		try {
+<<<<<<< 0e0999d7aed2b9a29b4f790418ad753bc57791c3
 			try {
 				Class.forName(DRIVER);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+=======
+			Class.forName(DRIVER);
+>>>>>>> c8c185df977f08ab411c41e62873941d4fed517c
 			CONN = DriverManager.getConnection(URL, USERNAME, PASSWORD);
 			System.out.println("已经打开");
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			System.out.println("打开失败");
 			e.printStackTrace();
 		}
