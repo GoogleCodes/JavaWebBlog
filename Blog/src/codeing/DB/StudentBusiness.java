@@ -21,37 +21,37 @@ public class StudentBusiness {
 	private static PreparedStatement PRER = null;
 	private static ResultSet READ = null;
 	
+	//	创建实例
+	private static DBClass db = new DBClass();
+	
 	public static List<Students> getAllStudents() {
 		//	list对象
 		List<Students> list = new ArrayList<Students>();
-		Students student = new Students();
-		String sql = "select * from tb_nav";
-		DBClass db = new DBClass();
+		String sql = "select id,title,url from tb_nav";
 		Connection conn = db.getConnection();
+		Students student = null;
 		//	执行sql语句
 		try {
 			PRER = conn.prepareStatement(sql);
 			READ = PRER.executeQuery();
+			student = new Students();
 			while (READ.next()) {
 				//	获取数据
-				int id = READ.getInt(1);
-				String name = READ.getString(2);
-				System.out.println(id +"  "+ name);
+				int id = READ.getInt("id");
+				String name = READ.getString("title");
+				String url = READ.getString("url");
 				student.setId(id);
 				student.setName(name);
+				student.setUrl(url);
 				//	把数据加载到集合中
 				list.add(student);
 			}
-			//	关闭数据库
-			db.getCloseDB();
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			//	关闭数据库
+			db.getCloseDB();
 		}
-		
-//		student.setId(1);
-//		student.setName("name");
-//		//	把数据加载到集合中
-//		list.add(student);
 		return list;
 	}
 

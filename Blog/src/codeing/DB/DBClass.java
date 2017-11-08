@@ -14,25 +14,25 @@ import java.sql.*;
  */
 public class DBClass {
 	
-	//	驱动字符串
+	//	桥接
 	private static String DRIVER = "com.mysql.jdbc.Driver";
 	//	数据库地址
-	private static String DBService = "qdm236565334.my3w.com:3306";
+	private static String DBService = "qdm236565334.my3w.com";
 	//	数据库名称
 	private static String DBNAME = "qdm236565334_db";
 	//	请求地址
-	private static String URL = "jdbc:mysql://"+ DBService +"/"+ DBNAME +"";
+	private static String URL = "jdbc:mysql://"+ DBService +":3306/"+ DBNAME +"";
 	//	数据库帐号和密码
 	private static String USERNAME = "qdm236565334";
 	private static String PASSWORD = "xiuxian123";
-	//	创建连接
+	//	新建连接
 	private static Connection CONN = null;
 	
 	/**
 	 * 
 	 * (打开数据库)
 	 * 方法名：getConnection
-	 * 创建人：cainiao
+	 * 创建人：cainiao 
 	 * 时间：2017年10月31日-下午10:07:57 
 	 * 手机:1564545646464 void
 	 * @return 
@@ -41,12 +41,16 @@ public class DBClass {
 	 */
 	public Connection getConnection() {
 		try {
-			Class.forName(DRIVER);
+			try {
+				Class.forName(DRIVER);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			CONN = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-			System.out.println("已经打开");
-		} catch (Exception e) {
-			System.out.println("打开失败");
+			System.out.println("打开成功！");
+		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.println("打开失败！");
 		}
 		return CONN;
 	}
@@ -67,12 +71,6 @@ public class DBClass {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-	}
-	
-	public static void main(String[] args) {
-		DBClass db = new DBClass();
-		db.getConnection();
-		db.getCloseDB();
 	}
 	
 }

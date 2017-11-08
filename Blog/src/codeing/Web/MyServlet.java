@@ -41,8 +41,10 @@ public class MyServlet extends HttpServlet {
 		listObject.setItems(list);
 		listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);
 	    String responseText = JackJsonUtils.toJson(listObject);
+		System.out.println(responseText);
 	    ResponseUtils.renderJson(response, responseText);
 	}
+
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
