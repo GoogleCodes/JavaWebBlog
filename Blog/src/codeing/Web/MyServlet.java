@@ -41,7 +41,6 @@ public class MyServlet extends HttpServlet {
 		listObject.setItems(list);
 		listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);
 	    String responseText = JackJsonUtils.toJson(listObject);
-		System.out.println(responseText);
 	    ResponseUtils.renderJson(response, responseText);
 	}
 
