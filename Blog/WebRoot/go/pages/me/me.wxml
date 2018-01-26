@@ -1,0 +1,8 @@
+<!--pages/me.wxml-->
+
+<view class="me">
+  <view class="avatarUrl">
+    <image src='{{ avatarUrl }}'></image>
+  </view>
+  <view class="nickName">{{ nickName }}</view>
+</view>

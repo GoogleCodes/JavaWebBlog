@@ -1,0 +1,13 @@
+<!--message.wxml-->
+<view class="msg-main" bindtap="goMessage">
+  <view class="title">借你的双眼给盲人</view>
+  <view class="thisDate fl">8月15日</view>
+  <view class="video-body"></view>
+  <view class="desc">
+    牛奶过期没？向左走还是向右走？频到这些问题的视力障碍这，一定希望有人能提供现场帮助。一款叫“Be MyEyes” 的手机App, 可关联已有的小程序或快速创建小程序。已关联的小程序可被使用在自定义菜单和模版消息等场景中。 公众号可关联同主体的10个小程序及不同主体的3个小程序。同一个小程序可关联最多50个公众号。
+  </view>
+  <view class="util" style="margin: 15px 0px;line-height:5px;">
+    <view class="iconfont icon-athit-iconfont-message fr">10</view>
+    <view class="iconfont icon-zan fr">10</view>
+  </view>
+</view>

@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/search",
+    "pages/message/message",
+    "pages/me/me",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Go",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "position": "bottom",
+    "borderStyle": "#eee",
+    "selectedColor": "#6aa84f",
+    "background": "#f8f8f8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "static/images/tabBar/img1-1.png",
+        "selectedIconPath": "static/images/tabBar/img1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "static/images/tabBar/img4.png",
+        "selectedIconPath": "static/images/tabBar/img4-4.png",
+        "text": "我"
+      }
+    ]
+  }
+}
