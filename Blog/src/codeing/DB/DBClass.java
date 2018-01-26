@@ -17,13 +17,13 @@ public class DBClass {
 	//	桥接
 	private static String DRIVER = "com.mysql.jdbc.Driver";
 	//	数据库地址
-	private static String DBService = "qdm217834368.my3w.com";
+	private static String DBService = "qdm111422335.my3w.com";
 	//	数据库名称
-	private static String DBNAME = "qdm217834368_db";
+	private static String DBNAME = "qdm111422335_db";
 	//	请求地址
 	private static String URL = "jdbc:mysql://"+ DBService +":3306/"+ DBNAME +"";
 	//	数据库帐号和密码
-	private static String USERNAME = "qdm217834368";
+	private static String USERNAME = "qdm111422335";
 	private static String PASSWORD = "xiuxian123";
 	//	新建连接
 	private static Connection CONN = null;

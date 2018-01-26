@@ -36,10 +36,10 @@ public class INewMessage {
 	 * @exception 
 	 * @since  1.0.0
 	 */
-	public static void setNewMessage(IMessage message) {
+	public static void setNews(IMessage message) {
 		CONN = db.getConnection();
 		//	创建SQL连接
-		String sql = "insert into tb_message(msg_title,msg_desc,msg_content) values (?,?,?)";
+		String sql = "insert into tb_news(news_title,news_desc,news_content) values (?,?,?)";
 		try {
 			PRER = CONN.prepareStatement(sql);
 			PRER.setString(1, message.getTitle());
@@ -64,7 +64,7 @@ public class INewMessage {
 		message.setTitle("1");
 		message.setDesc("1");
 		message.setContent("1");
-		setNewMessage(message);
+		setNews(message);
 	}
 	
 }

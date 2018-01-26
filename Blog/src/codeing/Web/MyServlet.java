@@ -33,24 +33,28 @@ public class MyServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		super.doGet(req, resp);
 		
 		List<Students> list = new StudentServiceImpl().getAllStudents();
 		ListObject listObject = new ListObject();
 		listObject.setItems(list);
 		listObject.setStatusObject(StatusHouse.COMMON_STATUS_OK);
 	    String responseText = JackJsonUtils.toJson(listObject);
-	    ResponseUtils.renderJson(response, responseText);
-	}
-
-	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		doGet(request, response);
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
+	    ResponseUtils.renderJson(resp, responseText);
 		
 	}
 
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+		super.doPost(req, resp);
+		
+		doGet(req, resp);
+		resp.setContentType("text/html");
+		PrintWriter out = resp.getWriter();
+		
+	}
 }

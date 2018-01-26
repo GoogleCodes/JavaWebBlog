@@ -12,12 +12,12 @@ import java.util.*;
  *
  */
 public class AbstractJsonObject {
-	//	code
+	
 	private String code;
-	// msg
+	
 	private String msg;
-	//	time
-	private Long time = new Date().getTime();
+	
+	private Long time = System.currentTimeMillis();
 	
 	public String getCode() {
 		return code;

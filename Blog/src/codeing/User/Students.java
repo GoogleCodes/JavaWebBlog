@@ -14,14 +14,22 @@ public class Students {
 	private int id;
 	//	NAME
 	private String name;
-	//	URL
-	private String url;
+	//	描述
+	private String desc;
+	//	具体内容
+	private String content;
 	
-	public String getUrl() {
-		return url;
+	public String getDesc() {
+		return desc;
 	}
-	public void setUrl(String url) {
-		this.url = url;
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public int getId() {
 		return id;

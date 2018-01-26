@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 public class ResponseUtils {
 	  
     public static void renderJson(HttpServletResponse response, String text) {  
-        // System.out.print(text);  
+        // System.out.print(text);
         render(response, "text/plain;charset=UTF-8", text);  
     }
     

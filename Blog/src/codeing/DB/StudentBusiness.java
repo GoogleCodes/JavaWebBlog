@@ -27,7 +27,8 @@ public class StudentBusiness {
 	public static List<Students> getAllStudents() {
 		//	list对象
 		List<Students> list = new ArrayList<Students>();
-		String sql = "select id,title,url from tb_nav";
+		//	请将如下数字码（阿里云UID） 1705725716402923
+		String sql = "select id,age from bank_data";
 		Connection conn = db.getConnection();
 		Students student = null;
 		//	执行sql语句
@@ -38,11 +39,9 @@ public class StudentBusiness {
 			while (READ.next()) {
 				//	获取数据
 				int id = READ.getInt("id");
-				String name = READ.getString("title");
-				String url = READ.getString("url");
+				String name = READ.getString("age");
 				student.setId(id);
 				student.setName(name);
-				student.setUrl(url);
 				//	把数据加载到集合中
 				list.add(student);
 			}

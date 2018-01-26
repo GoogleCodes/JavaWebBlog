@@ -8,23 +8,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+/**
+ * 
+ * 
+ * IMServlet
+ * 创建人:菜鸟
+ * 时间：2017年12月5日-下午10:01:22 
+ * @version 1.0.0
+ *
+ */
 public class IMServlet extends HttpServlet {
-
 	
-	public void doGet(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
+		super.doGet(req, resp);
 		
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out = resp.getWriter();
 		
 	}
 
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		doGet(request, response);
-		response.setContentType("text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+		super.doPost(req, resp);
+		
+		doGet(req, resp);
+		resp.setContentType("text/html;charset=utf-8");
+		PrintWriter out = resp.getWriter();
+		
 		
 	}
 

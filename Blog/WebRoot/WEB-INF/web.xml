@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="3.0"
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>MyServlet</servlet-name>
-    <servlet-class>codeing.Web.MyServlet</servlet-class>
-  </servlet>
-  <servlet>
-    <description>This is the description of my J2EE component</description>
-    <display-name>This is the display name of my J2EE component</display-name>
-    <servlet-name>IMServlet</servlet-name>
-    <servlet-class>codeing.Web.IMServlet</servlet-class>
-  </servlet>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>MyServlet</servlet-name>
+		<servlet-class>codeing.Web.MyServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>IMServlet</servlet-name>
+		<servlet-class>codeing.Web.IMServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>BankServlet</servlet-name>
+		<servlet-class>codeing.Web.BankServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<description>This is the description of my J2EE component</description>
+		<display-name>This is the display name of my J2EE component</display-name>
+		<servlet-name>SearchServlet</servlet-name>
+		<servlet-class>codeing.Web.SearchServlet</servlet-class>
+	</servlet>
 
 
-  <servlet-mapping>
-    <servlet-name>MyServlet</servlet-name>
-    <url-pattern>/MyServlet</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>IMServlet</servlet-name>
-    <url-pattern>/IMServlet</url-pattern>
-  </servlet-mapping>
 
-  <filter>  
-    <filter-name>CORSFilter</filter-name>  
-    <filter-class>codeing.filter.CORSFilter</filter-class>  
-  </filter>
 
-  <filter-mapping>
-  	<filter-name>CORSFilter</filter-name>
-	<url-pattern>/*</url-pattern>
-  </filter-mapping>
+	<servlet-mapping>
+		<servlet-name>MyServlet</servlet-name>
+		<url-pattern>/MyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>IMServlet</servlet-name>
+		<url-pattern>/IMServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>BankServlet</servlet-name>
+		<url-pattern>/BankServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SearchServlet</servlet-name>
+		<url-pattern>/SearchServlet</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>CORSFilter</filter-name>
+		<filter-class>codeing.filter.CORSFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>CORSFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 
 </web-app>

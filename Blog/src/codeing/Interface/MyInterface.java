@@ -14,5 +14,17 @@ import codeing.User.Students;
  *
  */
 public interface MyInterface {
+	
+	/**
+	 * 
+	 * (这里用一句话描述这个方法的作用)
+	 * 方法名：getAllStudents
+	 * 创建人：xuchengfei 
+	 * 时间：2018年1月13日-下午10:36:20 
+	 * 手机:1564545646464
+	 * @return List<Students>
+	 * @exception 
+	 * @since  1.0.0
+	 */
 	public List<Students> getAllStudents();
 }
