@@ -1,0 +1,9 @@
+<!--pages/upload/upload.wxml-->
+
+<!-- tools_upload start -->
+<view class="tools_upload">
+  <view class="ul">
+    <view class="li iconfont icon-paizhaoxiangji"></view>
+  </view>
+</view>
+<!-- tools_upload end -->

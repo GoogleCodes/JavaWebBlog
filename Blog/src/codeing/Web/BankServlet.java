@@ -29,6 +29,8 @@ public class BankServlet extends HttpServlet {
 		List<Bank> list = BankInformation.getBankMessage();
 		ListObject listobj = new ListObject();
 		listobj.setItems(list);
+		
+		
 		listobj.setStatusObject(StatusHouse.COMMON_STATUS_OK);
 		String responseText = JackJsonUtils.toJson(listobj);
 	    ResponseUtils.renderJson(resp, responseText);

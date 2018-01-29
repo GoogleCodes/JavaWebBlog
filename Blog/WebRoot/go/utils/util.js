@@ -22,6 +22,31 @@ class Main {
     })
   }
 
+  uploadAjax(data) {
+    wx.showLoading({
+      title: '上传中!!!',
+    })
+    return new Promise((resolve, reject) => {
+      wx.uploadFile({
+        url: urls.ServletUrl + data.url,
+        filePath: data.filePath,
+        name: data.name, // "file",
+        header: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST, PUT',
+          'Access-Control-Allow-Headers': 'Origin, X-Requested - With, Content-Type, Accept'
+        },
+        success(res) {
+          wx.hideLoading();
+          resolve(res);
+        },
+        fail(err) {
+
+        }
+      })
+    })
+  }
+
   formatTime(data) {
     var year = date.getFullYear()
     var month = date.getMonth() + 1
