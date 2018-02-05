@@ -10,21 +10,18 @@
 
 <view class="container">
   <view class="msg-main" wx:for="{{ list }}">
-    <view class="title">借你的双眼给盲人</view>
-
-    <view class="thisDate">8月15日</view>
-    <!-- <navigator url='/pages/message/message?id={{ item.id }}'></navigator> -->
+    <view class="title">{{ item.image_title }}</view>
     <view class="desc">
       <view class='status-one' wx:for="{{ src }}" wx:for-item="image" wx:if="{{ src.length == 1 }}">
-        <image src='{{ image }}' bindtap='previewImage' data-src='{{ image }}'></image>
+        <image src='{{ item.image_path }}' bindtap='previewImage' data-arrays='{{ item.image_arrays }}' data-src='{{ image }}'></image>
       </view>
       <view class='status-two' wx:for="{{ src }}" wx:for-item="image" wx:if="{{ src.length == 2 }}">
-        <image src='{{ image }}' bindtap='previewImage' data-src='{{ image }}'></image>
+        <image src='{{ item.image_path }}' bindtap='previewImage' data-src='{{ image }}'></image>
       </view>
     </view>
-
     <view class="classname">
-      <view class="fl">
+      <view class="thisDate">{{ item.create_time }}</view>
+      <view class="fl" hidden='true'>
         <view class="iconfont icon-athit-iconfont-message fr"></view>
         <view class="iconfont icon-zan fr"></view>
       </view>

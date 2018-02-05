@@ -41,7 +41,12 @@ class Main {
           resolve(res);
         },
         fail(err) {
-
+          wx.showModal({
+            title: '警告!',
+            content: err.errMsg,
+            showCancel: false,
+          })
+          wx.hideLoading();
         }
       })
     })

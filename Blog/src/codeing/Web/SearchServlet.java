@@ -49,14 +49,10 @@ public class SearchServlet extends HttpServlet {
 			throws ServletException, IOException {
 //		doGet(req, resp);
 		
-		resp.setContentType("text/html");
+		resp.setContentType("text/html;charset=utf-8");
 		PrintWriter out = resp.getWriter();
-		
 		String content = req.getParameter("content");
-		System.out.println(content + "----------------------------------");
-		
-		
-		List<Bank> list = BankSearch.searchBank(content);
+		List<Upload> list = BankSearch.searchBank(content);
 		ListObject listobj = new ListObject();
 		listobj.setItems(list);
 		listobj.setStatusObject(StatusHouse.COMMON_STATUS_OK);

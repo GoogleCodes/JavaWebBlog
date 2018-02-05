@@ -16,6 +16,7 @@
 	<form action="FileUploadServlet" method="post" enctype="multipart/form-data">
     	<span>选择一个文件:</span>
 	    <input type="file" name="file" />
+	    <input type="file" name="file1" />
 	    <input type="submit" value="上传" />
     </form>
 </body>

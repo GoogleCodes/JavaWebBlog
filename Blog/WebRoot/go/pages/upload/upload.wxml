@@ -1,9 +1,22 @@
 <!--pages/upload/upload.wxml-->
 
 <!-- tools_upload start -->
-<view class="tools_upload">
+<view class="tools_upload" hidden='{{ true }}'>
+  <view class="tools_textarea">
+    <textarea class="textarea" 
+    bindblur='blurTextArea'
+    placeholder='这一刻的想法...' value='{{ textarea }}'  ></textarea>
+  </view>
+</view>
+
+<view class="tools_iamges">
   <view class="ul">
-    <view class="li iconfont icon-paizhaoxiangji"></view>
+    <view class="ul_img fl" hidden='{{ imagesVisible }}' wx:for='{{ imgArrays }}' wx:for-item="image" >
+       <image src="{{ image }}" style="width: 100%; height: 69px;"  bindtap='previewImage' data-src='{{ item }}'></image> 
+    </view>
+    <view class="li iconfont icon-paizhaoxiangji fl" bindtap='getImages'></view>
   </view>
 </view>
 <!-- tools_upload end -->
+
+<button class="uploadBtn" bindtap='uploadImages'>上传</button>

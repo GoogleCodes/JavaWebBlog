@@ -9,9 +9,18 @@
 
 <view class="tools">
   <view class="ul">
-    <view class="li" bindtap='getImages' hover-class='hover_li' hover-start-time='50' hover-stay-time='2000'>
-      <text class=" iconfont icon-paizhaoxiangji"></text>
-      <text class="li_text">上传图片</text>
+    <view class="li" hover-class='hover_li' hover-start-time='50' hover-stay-time='2000'>
+      <navigator url='/pages/upload/upload'>
+        <text class=" iconfont icon-paizhaoxiangji"></text>
+        <text class="li_text">上传图片</text>
+      </navigator>
     </view>
+
+    <view class="li" hidden='true' hover-class='hover_li' hover-start-time='50' hover-stay-time='2000'>
+      <contact-button>
+        <text class="li_service">客服</text>
+      </contact-button>
+    </view>
+
   </view>
 </view>

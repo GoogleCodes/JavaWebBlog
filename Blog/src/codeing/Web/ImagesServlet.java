@@ -9,24 +9,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import codeing.Array.ListObject;
-import codeing.Commit.BankServiceImpl;
-import codeing.DB.BankInformation;
+import codeing.DB.SelectFileImages;
 import codeing.Util.JackJsonUtils;
 import codeing.Util.ResponseUtils;
 import codeing.Util.StatusHouse;
-import codeing.bean.*;
+import codeing.bean.Upload;
 
 import java.util.*;
 
+/**
+ * 
+ * 
+ * ImagesServlet
+ * 创建人:菜鸟
+ * 时间：2018年1月31日-下午10:34:47 
+ * @version 1.0.0
+ *
+ */
+public class ImagesServlet extends HttpServlet {
 
-public class BankServlet extends HttpServlet {
-
-	@Override
+	public ImagesServlet() {
+		super();
+	}
+	
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
+
 		resp.setContentType("text/html;charset=utf-8");
-		List<Bank> list = BankInformation.getBankMessage();
+		List<Upload> list = SelectFileImages.getImages();
 		ListObject listobj = new ListObject();
 		listobj.setItems(list);
 		listobj.setStatusObject(StatusHouse.COMMON_STATUS_OK);
@@ -35,12 +45,11 @@ public class BankServlet extends HttpServlet {
 		System.out.println(responseText);
 	}
 
-	@Override
+	
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
-		resp.setContentType("text/html;charset=utf-8s");
-		PrintWriter out = resp.getWriter();
+		doGet(req,resp);
+		resp.setContentType("text/html;charset=utf-8");
 		
 	}
 
