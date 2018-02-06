@@ -1,7 +1,7 @@
 <!--pages/upload/upload.wxml-->
 
 <!-- tools_upload start -->
-<view class="tools_upload" hidden='{{ true }}'>
+<view class="tools_upload">
   <view class="tools_textarea">
     <textarea class="textarea" 
     bindblur='blurTextArea'

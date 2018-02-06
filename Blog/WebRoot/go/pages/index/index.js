@@ -15,7 +15,6 @@ Page({
   onLoad() {
     let that = this;
     that.getMessage();
-    that.orderSign();
   },
 
   onShareAppMessage() {
@@ -74,38 +73,6 @@ Page({
     wx.navigateTo({
       url: '../search/search?id' + 1,
     })
-  },
-
-  orderSign() {
-    let that = this;
-    var url = urls.wxopen + urls.access_token;
-    // wx.request({
-    //   url: url,
-    //   data: {
-    //     touser: wx.getStorageSync('user').openid,
-    //     template_id: urls.template_id,
-    //     page: '/pages/smart/smart',
-    //     form_id: wx.getStorageSync('userInformation').formID,
-    //     data: {
-    //       "keyword1": {
-    //         "value": '测试发送消息',
-    //         "color": "#4a4a4a"
-    //       },
-    //       "keyword2": {
-    //         "value": '智能灯已开启',
-    //         "color": "#4a4a4a"
-    //       }
-    //     },
-    //     emphasis_keyword: 'keyword1.DATA'
-    //   },
-    //   method: 'POST',
-    //   success(res) {
-    //     that.setData({ switchButton: true });
-    //     //  发送数据
-    //     tools.sendData('c2s_write', that.data.did, that.data.switchButton);
-    //     $._Toast('发送成功', 'success');
-    //   }
-    // });
   },
 
   previewImage(e) {

@@ -50,7 +50,7 @@ public class InsterFileDate {
 		/**
 		 * 创建sql 语句
 		 */
-		String sql = "insert into t_uploads (image_path, image_name, create_time, image_title) values (?,?,?,?)";
+		String sql = "insert into t_uploads (image_path, image_name, create_time, user_id, image_title) values (?,?,?,?,?)";
 		
 		/**
 		 * 创建实例
@@ -60,10 +60,10 @@ public class InsterFileDate {
 		try {
 			PRER = conn.prepareStatement(sql);
 			PRER.setString(1, upload.getPath());
-//			PRER.setString(1, upload.getImage_path());
 			PRER.setString(2, upload.getImage_name());
 			PRER.setString(3, upload.getCreate_time());
-			PRER.setString(4, upload.getImage_title());
+			PRER.setString(4, upload.getUser_id());
+			PRER.setString(5, upload.getImage_title());
 			int row = PRER.executeUpdate();
 			if (row > 0) {
 				System.out.println(row);

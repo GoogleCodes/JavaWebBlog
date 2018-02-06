@@ -12,7 +12,7 @@ Page({
   data: {
     imgArrays: [],
     imagesVisible: true,
-    textarea: ''
+    textarea: '测试'
   },
 
   /**
@@ -69,13 +69,13 @@ Page({
   uploadImages() {
     let that = this;
 
-    console.log($.formatTime(new Date()));
+    console.log($.formatTime(new Date()), that.data.textarea);
     for (let i in that.data.imgArrays) {
       $.uploadAjax({
-        url: 'FileUploadServlet',
+        url: 'FileUploadServlet?desc=' + "that.data.textarea" + '&openid=' + wx.getStorageSync('wxUserInfo').openid,
         filePath: that.data.imgArrays[i],
         formData: {
-          // desc: 'that.data.textarea'
+          
         },
         name: 'file',
       }).then((res) => {

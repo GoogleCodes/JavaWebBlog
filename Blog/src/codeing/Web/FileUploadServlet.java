@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -55,10 +57,10 @@ public class FileUploadServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		
 
-		String content = req.getParameter("desc");
-		
+		resp.setContentType("text/html;charset=utf-8");
+		resp.setCharacterEncoding("UTF-8");
+
 		// 检测是否为多媒体上传
         if (!ServletFileUpload.isMultipartContent(req)) {
             // 如果不是则停止
@@ -98,7 +100,7 @@ public class FileUploadServlet extends HttpServlet {
         //	这个路径相对当前应用的目录
 //        System.out.println(req.getServletContext().getRealPath("/WEB-INF") + File.separator + UPLOAD_DIRECTORY + "---------------------------");
         String uploadPath = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.0\\webapps\\ROOT\\images";	//req.getServletContext().getRealPath("./") + File.separator + UPLOAD_DIRECTORY;
-//        String uploadPath = "E:\\app"d;
+//        String uploadPath = "E:\\app";
         //	如果目录不存在则创建
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()) {
@@ -114,12 +116,20 @@ public class FileUploadServlet extends HttpServlet {
         List<String> list = new ArrayList<String>();
         String responseText = null;
         String filePath = null;
+        String content = null;
+        String user_id = null;
         try {
             // 解析请求的内容提取文件数据
             @SuppressWarnings("unchecked")
             List<FileItem> formItems = upload.parseRequest(req);
  
             if (formItems != null && formItems.size() > 0) {
+            	
+        		content = URLEncoder.encode(req.getParameter("desc"), "ISO-8859-1");
+        		content = URLDecoder.decode(content, "UTF-8");
+        		System.out.println(content);
+        		user_id = req.getParameter("openid");
+        		
                 // 迭代表单数据
                 for (FileItem item : formItems) {
                 	System.out.println(item + "item.............................");
@@ -160,9 +170,9 @@ public class FileUploadServlet extends HttpServlet {
 			e.printStackTrace();
 		}
         
-		System.out.println(content + "-------------+++-+-");
-		
-		uploads.setImage_title("picture!");
+		System.out.println(content + "-------------+++-+-" + user_id + "-----------------open");
+		uploads.setUser_id(user_id);
+		uploads.setImage_title(content);
         
         InsterFileDate.SaveFilePath(uploads);
         
@@ -173,10 +183,10 @@ public class FileUploadServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		doGet(req, resp);
-
 		resp.setContentType("text/html;charset=utf-8");
-		PrintWriter out = resp.getWriter();
+		resp.setCharacterEncoding("UTF-8");
+		
+		doGet(req, resp);
 
 	}
 

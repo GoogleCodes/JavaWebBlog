@@ -26,9 +26,10 @@ class Main {
     wx.showLoading({
       title: '上传中!!!',
     })
+    console.log(urls.ServletUrl + data.url);
     return new Promise((resolve, reject) => {
       wx.uploadFile({
-        url: urls.ServletUrl + data.url,
+        url: urls.ServletUrl + data.url, // urls.ServletUrl
         filePath: data.filePath,
         name: data.name, // "file",
         header: {

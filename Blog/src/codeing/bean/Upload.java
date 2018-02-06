@@ -39,7 +39,7 @@ public class Upload {
 	private Date delete_time;
 	
 	//	用户ID
-	private int user_id;
+	private String user_id;
 
 	private String image_title;
 	
@@ -67,7 +67,7 @@ public class Upload {
 		return delete_time;
 	}
 
-	public int getUser_id() {
+	public String getUser_id() {
 		return user_id;
 	}
 
@@ -88,7 +88,7 @@ public class Upload {
 		this.delete_time = delete_time;
 	}
 
-	public void setUser_id(int user_id) {
+	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
 

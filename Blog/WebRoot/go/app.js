@@ -15,7 +15,7 @@ App({
         success(res) {
           if (res.errMsg == 'login:ok') {
             wx.request({
-              url: 'http://localhost:8080/WeChatServlet',
+              url: 'https://www.getcodeing.com/Blog/WeChatServlet',
               method: 'POST',
               data: {
                 code: res.code
