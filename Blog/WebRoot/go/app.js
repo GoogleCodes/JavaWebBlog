@@ -10,34 +10,34 @@ App({
     //url
     let url = urls.LoginUri + '?appid=' + urls.Appid + '&secret=' + urls.Secrent;
 
-    // if (typeof user == 'object' && !user.openid && (user.expires_in || Date.now()) < (Date.now() + 600)) {
-    //   wx.login({
-    //     success(res) {
-    //       if (res.errMsg == 'login:ok') {
-    //         //  发起请求
-    //         wx.request({
-    //           url: url + '&js_code=' + res.code + '&grant_type=authorization_code',
-    //           success(res) {
-    //             let obj = {};
-    //             obj.openid = res.data.openid;
-    //             obj.expires_in = Date.now() + res.data.expires_in;
-    //             wx.setStorageSync('wxuser', obj);
-
-    //             //调用API从本地缓存中获取数据
-    //             var logs = wx.getStorageSync('logs') || []
-    //             logs.unshift(Date.now())
-    //             wx.setStorageSync('logs', logs)
-    //           }
-    //         })
-    //       } else {
-    //         wx.showToast({
-    //           title: '登录失败!',
-    //           duration: 2000,
-    //         })
-    //       }
-    //     }
-    //   })
-    // }
+    if (typeof user == 'object' && !user.openid && (user.expires_in || Date.now()) < (Date.now() + 600)) {
+      wx.login({
+        success(res) {
+          if (res.errMsg == 'login:ok') {
+            wx.request({
+              url: 'http://localhost:8080/WeChatServlet',
+              method: 'POST',
+              data: {
+                code: res.code
+              },
+              header: {
+                'content-type': 'application/json',
+                'content-type': 'application/x-www-form-urlencoded'
+              },
+              success(res) {
+                let json = JSON.parse(res.data);
+                wx.setStorageSync('wxUserInfo', json)
+              },
+            })
+          } else {
+            wx.showToast({
+              title: '登录失败!',
+              duration: 2000,
+            })
+          }
+        }
+      })
+    }
   },
 
   getUserInfo(cb) {
