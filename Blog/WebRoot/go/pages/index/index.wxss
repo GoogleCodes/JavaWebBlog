@@ -9,6 +9,7 @@
   top: 0px;
   left: 0px;
   width: 100%;
+  z-index: 100;
 }
 
 .form {
@@ -46,6 +47,24 @@
   clear: both;
   overflow: hidden;
   margin: 10px 0;
+  position: relative;
+}
+
+.msg-main .layers {
+  width: 96.5%;
+  height: 74%;
+  background: #f2f2f2;
+  position: absolute;
+  top: 45px;
+  left: 7px;
+  z-index: 10;
+}
+
+.msg-main .videoTools {
+  width: 100%;
+  z-index: 1;
+  margin-top: 10px;
+  padding-bottom: 10px;
 }
 
 .msg-main .title {

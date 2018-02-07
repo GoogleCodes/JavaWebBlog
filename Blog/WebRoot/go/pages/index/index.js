@@ -9,12 +9,41 @@ var app = getApp()
 Page({
   data: {
     list: [],
+    videoLayers: true,
     src: ['https://getcodeing.com/static/images/abc.jpg'],
     arr: [],
+    videoList: [
+      {
+        id: 1,
+        poster: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3709283858,1399079009&fm=27&gp=0.jpg',
+        src: 'https://images.apple.com/media/cn/chinese-new-year/three-minutes/2018/f14ed516_730e_499a_8374_afd743848de6/films/three-minutes/iphone-three-minutes-tpl-cn-20180201_1280x720h.mp4'
+      },
+      {
+        id: 2,
+        poster: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3709283858,1399079009&fm=27&gp=0.jpg',
+        src: 'https://images.apple.com/media/cn/chinese-new-year/three-minutes/2018/f14ed516_730e_499a_8374_afd743848de6/films/three-minutes/iphone-three-minutes-tpl-cn-20180201_1280x720h.mp4'
+      }
+    ]
   },
   onLoad() {
     let that = this;
     that.getMessage();
+  },
+
+  statusPlay(e) {
+    let that = this;
+    let index = e.currentTarget.dataset.index;
+    let id = e.currentTarget.dataset.id;
+    let list = that.data.videoList;
+    for (let i in list) {
+      if (id !== list[i].id) {
+        let videoContext = wx.createVideoContext(list[i].id.toString());
+        videoContext.pause();
+        that.setData({
+          videoLayers: false,
+        })
+      }
+    }
   },
 
   onShareAppMessage() {
@@ -91,5 +120,12 @@ Page({
       urls: arr,
     })
   },
+
+  /**
+   * 监听页面滚动
+   */
+  onPageScroll(e) {
+    
+  }
 
 })

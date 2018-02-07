@@ -9,6 +9,16 @@
 </view>
 
 <view class="container">
+
+  <view class="msg-main" wx:for="{{ videoList }}" wx:for-index="i">
+    <view class="title">视频</view>
+    <!-- <view class='layers' hidden='{{ videoLayers }}'></view> -->
+    <video class="videoTools" poster='{{ item.poster }}' src='{{ item.src }}'
+      show-fullscreen-btn="true" controls="true" data-index='{{ i }}' id='{{ item.id }}' bindplay='statusPlay' data-id='{{ item.id }}'></video>
+    <view class="thisDate">02月1日</view>
+  </view>
+
+
   <view class="msg-main" wx:for="{{ list }}">
     <view class="title">{{ item.image_title }}</view>
     <view class="desc">
