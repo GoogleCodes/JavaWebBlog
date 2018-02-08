@@ -83,6 +83,24 @@
   margin: 0px 11px 0px 0px;
 }
 
+@media all and (max-width: 414px) {
+  .status-one {
+    height: 260px;
+  }
+}
+
+@media all and (max-width: 375px) {
+  .status-one {
+    height: 245px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .status-one {
+    height: 215px;
+  }
+}
+
 .status-two {
   width: 48%;
   height: 140px;
