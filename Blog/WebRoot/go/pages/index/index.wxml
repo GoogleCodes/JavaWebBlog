@@ -1,23 +1,23 @@
 <!--index.wxml-->
 <view class="search_form">
-
   <view class="form" bindtap="goPage">
     <label class="iconfont icon-sousuo"></label>
     <text>search</text>
   </view>
-
 </view>
 
 <view class="container">
-
-  <view class="msg-main" wx:for="{{ videoList }}" wx:for-index="i">
+  <!-- <view class="msg-main" wx:for="{{ videoList }}" wx:for-index="i">
+    <view class="layer_views">
+      <view class="layers {{ item.id == videoID ? 'videoLayers' : '' }}">
+        <text class='iconfont icon-bofang' bindtap='playVideo' data-id='{{ item.id }}' data-index='{{ i }}'></text>
+        <image src='https://www.getcodeing.com/images/1518097273335.jpg' class="ban"></image>
+      </view>
+      <video class="videoTools" poster='{{ item.poster }}' src='{{ item.src }}' show-fullscreen-btn="true" controls="true" id='{{ item.id }}'></video>
+    </view>
     <view class="title">视频</view>
-    <!-- <view class='layers' hidden='{{ videoLayers }}'></view> -->
-    <video class="videoTools" poster='{{ item.poster }}' src='{{ item.src }}'
-      show-fullscreen-btn="true" controls="true" data-index='{{ i }}' id='{{ item.id }}' bindplay='statusPlay' data-id='{{ item.id }}'></video>
     <view class="thisDate">02月1日</view>
-  </view>
-
+  </view> -->
 
   <view class="msg-main" wx:for="{{ list }}">
     <view class="title">{{ item.image_title }}</view>

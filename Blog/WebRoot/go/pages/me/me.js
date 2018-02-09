@@ -11,6 +11,10 @@ Page({
   data: {
     nickName: '',
     avatarUrl: '',
+    lastX: 0,     //滑动开始x轴位置
+    lastY: 0,     //滑动开始y轴位置
+    currentGesture: 0, //标识手势
+    status: false,
   },
 
 
@@ -36,7 +40,54 @@ Page({
     })
   },
 
-  
+  handletouchmove(e) {
+    let that = this;
+    var currentX = e.touches[0].pageX;
+    var currentY = e.touches[0].pageY;
+    var tx = currentX - this.data.lastX;
+    var ty = currentY - this.data.lastY;
+    //左右方向滑动
+    if (Math.abs(tx) > Math.abs(ty)) {
+      if (tx < 0) {
+        that.setData({
+          status: false,
+        });
+      } else if (tx > 0) {
+        that.setData({
+          status: false,
+        });
+      }
+    } else {  //上下方向滑动
+      if (ty < 0) {
+        that.setData({
+          status: false,
+        });
+      } else if (ty > 0) {
+        that.setData({
+          status: true,
+        });
+      }
+    }
+    //将当前坐标进行保存以进行下一次计算
+    this.data.lastX = currentX
+    this.data.lastY = currentY
+    that.setData({
+      status: true,
+    });
+  },
+
+  //滑动开始事件
+  handletouchtart: function (event) {
+    this.data.lastX = event.touches[0].pageX
+    this.data.lastY = event.touches[0].pageY
+  },
+  //滑动结束事件
+  handletouchend: function (event) {
+    this.data.currentGesture = 0;
+    this.setData({
+      status: false,
+    });
+  },
 
 
   /**

@@ -13,9 +13,8 @@
 }
 
 .form {
-  background: #f1f1f1;
+  background: #f4f4f4;
   text-align: center;
-  background: #f2f2f2;
   height: 30px;
   line-height: 30px;
   width: 100%;
@@ -28,9 +27,8 @@
 }
 
 .form input[type='text'] {
-  background: #eee;
+  background: #f4f4f4;
   text-align: center;
-  background: #f2f2f2;
   height: 30px;
   width: 100%;
   font-size: 12px;
@@ -50,13 +48,46 @@
   position: relative;
 }
 
-.msg-main .layers {
-  width: 96.5%;
+.msg-main .layer_views {
+  position: relative;
+  width: 100%;
   height: 74%;
+}
+
+.msg-main .layers {
+  width: 100%;
+  height: 94%;
   background: #f2f2f2;
   position: absolute;
-  top: 45px;
-  left: 7px;
+  top: 10px;
+  left: 0px;
+  z-index: 10;
+}
+
+.videoLayers {
+  display: none;
+}
+
+.msg-main .layers .icon-bofang {
+  text-align: center;
+  line-height: 236px;
+  font-size: 36px;
+  width: 100%;
+  height: 236px;
+  z-index: 100;
+  display: block;
+  position: absolute;
+  color: #f2f2f2;
+  top: 0px;
+
+}
+
+.msg-main .layers .ban {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   z-index: 10;
 }
 

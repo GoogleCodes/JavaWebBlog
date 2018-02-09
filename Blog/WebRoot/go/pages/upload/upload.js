@@ -68,14 +68,11 @@ Page({
 
   uploadImages() {
     let that = this;
-
-    console.log($.formatTime(new Date()), that.data.textarea);
     for (let i in that.data.imgArrays) {
       $.uploadAjax({
         url: 'FileUploadServlet?desc=' + that.data.textarea + '&openid=' + wx.getStorageSync('wxUserInfo').openid,
         filePath: that.data.imgArrays[i],
         formData: {
-          
         },
         name: 'file',
       }).then((res) => {

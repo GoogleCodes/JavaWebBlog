@@ -1,26 +1,31 @@
 <!--pages/me.wxml-->
 
-<view class="me">
-  <view class="avatarUrl">
-    <image src='{{ avatarUrl }}'></image>
+<view class="fixed" bindtouchstart="handletouchtart" bindtouchmove="handletouchmove" bindtouchend="handletouchend">
+  <view class="me">
+    <image src='https://img.alicdn.com/tps/TB1RJ_8LXXXXXX9aXXXXXXXXXXX-576-840.jpg' class="active {{ status == true ? 'scale' : '' }}"></image>
+    <view class="avatarUrl">
+      <image src='{{ avatarUrl }}'></image>
+    </view>
+    <view class="nickName">{{ nickName }}</view>
   </view>
-  <view class="nickName">{{ nickName }}</view>
-</view>
 
-<view class="tools">
-  <view class="ul">
-    <view class="li" hover-class='hover_li' hover-start-time='50' hover-stay-time='2000'>
-      <navigator url='/pages/upload/upload'>
-        <text class=" iconfont icon-paizhaoxiangji"></text>
-        <text class="li_text">上传图片</text>
-      </navigator>
+
+
+  <view class="tools">
+    <view class="ul">
+      <view class="li" hover-class='hover_li' hover-start-time='50' hover-stay-time='2000'>
+        <navigator url='/pages/upload/upload'>
+          <text class=" iconfont icon-paizhaoxiangji"></text>
+          <text class="li_text">上传图片</text>
+        </navigator>
+      </view>
+
+      <view class="li" hidden='true' hover-class='hover_li' hover-start-time='50' hover-stay-time='2000'>
+        <contact-button>
+          <text class="li_service">客服</text>
+        </contact-button>
+      </view>
+
     </view>
-
-    <view class="li" hidden='true' hover-class='hover_li' hover-start-time='50' hover-stay-time='2000'>
-      <contact-button>
-        <text class="li_service">客服</text>
-      </contact-button>
-    </view>
-
   </view>
 </view>

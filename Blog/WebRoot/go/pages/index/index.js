@@ -9,18 +9,22 @@ var app = getApp()
 Page({
   data: {
     list: [],
-    videoLayers: true,
+    videoLayers: false,
     src: ['https://getcodeing.com/static/images/abc.jpg'],
     arr: [],
+    backImage: 'https://www.getcodeing.com/images/1518097273335.jpg',
+    eHeight: 0,
+    showImage: false,
+    videoID: -1,
     videoList: [
       {
         id: 1,
-        poster: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3709283858,1399079009&fm=27&gp=0.jpg',
+        poster: 'https://www.getcodeing.com/images/1518097273335.jpg',
         src: 'https://images.apple.com/media/cn/chinese-new-year/three-minutes/2018/f14ed516_730e_499a_8374_afd743848de6/films/three-minutes/iphone-three-minutes-tpl-cn-20180201_1280x720h.mp4'
       },
       {
         id: 2,
-        poster: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3709283858,1399079009&fm=27&gp=0.jpg',
+        poster: 'https://www.getcodeing.com/images/1518097273335.jpg',
         src: 'https://images.apple.com/media/cn/chinese-new-year/three-minutes/2018/f14ed516_730e_499a_8374_afd743848de6/films/three-minutes/iphone-three-minutes-tpl-cn-20180201_1280x720h.mp4'
       }
     ]
@@ -30,19 +34,28 @@ Page({
     that.getMessage();
   },
 
-  statusPlay(e) {
+  playVideo(e) {
     let that = this;
     let index = e.currentTarget.dataset.index;
     let id = e.currentTarget.dataset.id;
     let list = that.data.videoList;
     for (let i in list) {
-      if (id !== list[i].id) {
-        let videoContext = wx.createVideoContext(list[i].id.toString());
+      let videoContext = wx.createVideoContext(list[i].id.toString());
+      if (id == list[i].id) {
+        videoContext.play();
+        that.setData({
+          videoID: id,
+          videoLayers: true,
+        })
+      } else {
         videoContext.pause();
         that.setData({
           videoLayers: false,
         })
       }
+      that.setData({
+        videoID: id,
+      })
     }
   },
 
@@ -78,13 +91,13 @@ Page({
       for (let i in res.items) {
         pathArrays = res.items;
         let str = JSON.parse(res.items[i].image_path);
-        let done = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.0\\webapps\\ROOT\\";
         let rep = '';
         for (let i in str) {
-          rep = str[i].replace(done, "https://www.getcodeing.com/")
+          rep = str[i];
+          console.log(rep);
         }
         json = {
-          image_path: rep.replace("\\", "/"),
+          image_path: 'https://www.getcodeing.com/' + rep,
           image_arrays: res.items[i].image_path,
           create_time: res.items[i].create_time,
           image_title: res.items[i].image_title
@@ -109,10 +122,8 @@ Page({
     var current = e.target.dataset.src;
     let arr = [], rep = '';
     let array = JSON.parse(e.target.dataset.arrays);
-    let done = "C:\\Program Files\\Apache Software Foundation\\Tomcat 8.0\\webapps\\ROOT\\";
     for (let i in array) {
-      rep = array[i].replace(done, "https://www.getcodeing.com/");
-      rep = rep.replace("\\", "/");
+      rep = 'https://www.getcodeing.com/' + array[i];
       arr.push(rep);
     }
     wx.previewImage({
